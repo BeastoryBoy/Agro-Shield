@@ -233,7 +233,7 @@ async function runScan() {
     const formData = new FormData();
     formData.append("image", file);
 
-    const res = await fetch("https://agro-backend.onrender.com/submit", {
+    const res = await fetch("https://agro-backend-aqwn.onrender.com/submit", {
       method: "POST",
       body: formData
     });
