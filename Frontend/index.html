@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgroShield — AI Plant Disease Intelligence</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bgc"></canvas>
+
+<!-- ===== NAV ===== -->
+<nav id="nav">
+  <a class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <div class="ndot"></div>Agro<span>Shield</span>
+  </a>
+  <div class="nav-links">
+    <button class="nl" onclick="sTo('scanner')">🔬 Scanner</button>
+    <button class="nl" onclick="sTo('encyclopedia')">📚 Encyclopedia</button>
+    <button class="nl" onclick="sTo('prevention')">🛡️ Prevention</button>
+    <button class="nl" onclick="sTo('share')">📡 Share</button>
+  </div>
+  <div class="nav-right">
+    <div class="nav-user" id="nav-user">
+      <span class="nav-uname" id="nav-uname">—</span>
+      <div class="nav-av" id="nav-av">A</div>
+      <button class="btn-nlo" onclick="doLogout()">Sign Out / ನಿರ್ಗಮಿಸಿ</button>
+    </div>
+    <button class="btn-ncta" id="nav-auth-btn" onclick="openAuth('register')">Get Started Free → ಉಚಿತವಾಗಿ ಪ್ರಾರಂಭಿಸಿ</button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-orb hero-orb1"></div>
+  <div class="hero-orb hero-orb2"></div>
+  <div class="hero-wrap">
+    <div>
+      <div class="hero-badge"><div class="hero-bdot"></div>AI-Powered Plant Intelligence v6.0</div>
+      <h1 class="hero-h1">Every Crop.<br>Every Disease.<br><span class="gr">One Intelligent Shield.</span></h1>
+      <p class="hero-sub">Upload any plant photo → Instant AI disease diagnosis · Complete crop encyclopedia · WhatsApp & SMS alerts to any farmer — even basic feature phones with no internet.</p>
+      <div class="hero-btns">
+        <button class="btn-hprimary" onclick="openAuth('register')">🚀 Start Scanning Free</button>
+        <button class="btn-hsec" onclick="sTo('encyclopedia')">📚 Disease Encyclopedia</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat-n">99%</div><div class="hstat-l">AI Accuracy</div></div>
+        <div class="hstat"><div class="hstat-n">10</div><div class="hstat-l">Crops</div></div>
+        <div class="hstat"><div class="hstat-n">45+</div><div class="hstat-l">Diseases</div></div>
+        <div class="hstat"><div class="hstat-n">Free</div><div class="hstat-l">Always</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hv-ai-tag">🤖 AI Active</div>
+      <div class="hv-card">
+        <div class="hv-inner">
+          <div style="font-size:.66rem;letter-spacing:2px;color:var(--t3);text-transform:uppercase;">Live Analysis Preview</div>
+          <div style="font-size:.98rem;font-weight:800;color:var(--t1);">Tomato Leaf — India</div>
+          <div class="hv-scan">
+            <div class="hv-scanline"></div>
+            <div style="font-size:2.8rem;margin-bottom:7px;position:relative;z-index:1;">🍅</div>
+            <div style="font-size:.76rem;color:var(--t2);position:relative;z-index:1;">Analyzing disease patterns…</div>
+          </div>
+          <div class="hv-chips">
+            <div class="hvc hvc-g"><div class="hvc-label" style="color:var(--g);">Healthy</div><div class="hvc-val" style="color:var(--g);">97%</div></div>
+            <div class="hvc hvc-r"><div class="hvc-label" style="color:var(--r);">Blight</div><div class="hvc-val" style="color:var(--r);">2%</div></div>
+            <div class="hvc hvc-b"><div class="hvc-label" style="color:var(--b);">Rust</div><div class="hvc-val" style="color:var(--b);">1%</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="sec sec-alt" id="features">
+  <div class="mxw tc">
+    <div class="sec-tag">✨ Platform Features</div>
+    <h2 class="sec-title">Everything a Farmer Needs</h2>
+    <p class="sec-sub">AI diagnosis, complete disease library, WhatsApp & SMS alerts — the full crop health lifecycle in one free platform.</p>
+    <div class="feat-grid">
+      <div class="feat-card"><div class="ficon">🔬</div><h3>Gemini AI Scanner</h3><p>Google's Gemini AI identifies crop, disease, pathogen type, severity, and generates a customized treatment plan in under 3 seconds with 99% accuracy.</p></div>
+      <div class="feat-card"><div class="ficon">🚫</div><h3>Smart Image Rejection</h3><p>Not a plant? AI instantly detects it and shows exactly what to photograph instead. Eliminates false diagnoses completely with clear guidance.</p></div>
+      <div class="feat-card"><div class="ficon">📚</div><h3>Complete Disease Encyclopedia</h3><p>10 major crops with 45+ detailed disease profiles. Scientific causes, symptoms, spread risk, yield impact, and full treatment protocols.</p></div>
+      <div class="feat-card"><div class="ficon">📱</div><h3>SMS for Any Phone</h3><p>Share disease alerts to basic feature phones with zero internet. Formatted reports with crop, disease, severity, and treatment steps reach every farmer.</p></div>
+      <div class="feat-card"><div class="ficon">🌿</div><h3>Organic Alternatives</h3><p>Every diagnosis includes organic and natural treatment options alongside conventional chemical recommendations for sustainable farming.</p></div>
+      <div class="feat-card"><div class="ficon">🛡️</div><h3>Prevention Science</h3><p>Science-backed prevention protocols, crop rotation guidance, resistant variety recommendations, and seasonal monitoring tips.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="sec" id="how">
+  <div class="mxw tc">
+    <div class="sec-tag">📋 Simple Process</div>
+    <h2 class="sec-title">How AgroShield Works</h2>
+    <p class="sec-sub">Four simple steps from photo to complete treatment plan in under 30 seconds.</p>
+    <div class="how-grid">
+      <div class="how-card"><div class="how-num">01</div><div class="how-icon">📸</div><h3>Take a Photo</h3><p>Photograph the affected leaf, stem, or fruit. A clear close-up of the diseased area gives the most accurate AI results.</p></div>
+      <div class="how-card"><div class="how-num">02</div><div class="how-icon">🤖</div><h3>AI Analyzes</h3><p>Gemini AI identifies the crop type, detects disease markers, and computes a confidence score — in under 3 seconds.</p></div>
+      <div class="how-card"><div class="how-num">03</div><div class="how-icon">💊</div><h3>Get Treatment Plan</h3><p>Receive disease name, confidence score, root cause, step-by-step treatment, organic options, and prevention strategies.</p></div>
+      <div class="how-card"><div class="how-num">04</div><div class="how-icon">📡</div><h3>Alert Farmers</h3><p>Share results via WhatsApp or SMS. Basic feature phones with no internet receive complete formatted disease alerts.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AI SCANNER ===== -->
+<section class="sec sec-alt" id="scanner">
+  <div class="mxw">
+    <div class="tc" style="margin-bottom:36px;">
+      <div class="sec-tag">🔬 Gemini AI — Live</div>
+      <h2 class="sec-title">Plant Disease Scanner</h2>
+      <p class="sec-sub">Upload any plant photo. AI identifies crop, disease, severity & treatment plan. Non-plant images are instantly rejected with clear guidance.</p>
+    </div>
+    <div class="scanner-layout">
+      <!-- Upload side -->
+      <div style="display:flex;flex-direction:column;">
+        <div class="dz" id="dz" ondragover="dzOver(event)" ondrop="dzDrop(event)" ondragleave="dzLeave()">
+          <div class="dz-corners">
+            <span class="c-tl"></span><span class="c-tr"></span>
+            <span class="c-bl"></span><span class="c-br"></span>
+          </div>
+          <div id="dz-ph" style="display:flex;flex-direction:column;align-items:center;gap:11px;">
+            <div class="dz-icon">🌿</div>
+            <h3>Drop Plant Photo Here</h3>
+            <div class="dz-hint">Clear close-up of affected leaf, stem, or fruit<br>gives the most accurate diagnosis</div>
+            <div class="dz-types">
+              <span class="dzt dzt-g">Leaf</span>
+              <span class="dzt dzt-b">Stem</span>
+              <span class="dzt dzt-p">Fruit</span>
+              <span class="dzt dzt-gold">Max 10MB</span>
+            </div>
+            <div style="margin-top:4px;padding:8px 16px;background:rgba(0,255,157,.08);border:1px solid rgba(0,255,157,.14);border-radius:50px;font-size:.7rem;color:var(--g);font-weight:600;">Click anywhere to browse files</div>
+          </div>
+          <div id="dz-prev">
+            <img id="prev-img" src="" alt="Plant preview">
+            <div class="dz-prev-lbl">READY TO ANALYZE</div>
+          </div>
+        </div>
+        <input type="file" id="file-in" accept="image/*" style="display:none;" onchange="handleFile(this.files[0])">
+        <button class="btn-scan" id="btn-scan" onclick="runScan()" disabled>🔬 Analyze Plant Disease</button>
+        <button class="btn-reset" id="btn-reset" onclick="resetScanner()">↺ Scan Another Plant</button>
+        <div class="priv-note">Gemini AI • Private & Secure • No images stored</div>
+      </div>
+      <!-- Result side -->
+      <div class="rp" id="rp">
+        <div class="rp-empty" id="rp-empty">
+          <div class="rp-empty-icon">🌱</div>
+          <div style="font-size:.88rem;font-weight:700;color:var(--t2);margin-bottom:4px;">Awaiting Plant Photo</div>
+          <div style="font-size:.78rem;color:var(--t3);max-width:185px;line-height:1.65;text-align:center;">Upload a plant image to see your instant AI diagnosis results here</div>
+          <div style="margin-top:13px;font-size:.6rem;color:var(--t4);font-family:'JetBrains Mono',monospace;">92% Accuracy • Gemini AI</div>
+        </div>
+        <div class="rp-loading" id="rp-loading">
+          <div class="ai-ring"><div class="ai-ring-core"></div></div>
+          <div class="proc-lbl" id="proc-lbl">Initializing AI engine…</div>
+          <div class="proc-steps">
+            <div class="ps" id="ps1">Loading Gemini model</div>
+            <div class="ps" id="ps2">Detecting plant structure</div>
+            <div class="ps" id="ps3">Identifying disease markers</div>
+            <div class="ps" id="ps4">Computing confidence score</div>
+            <div class="ps" id="ps5">Generating treatment plan</div>
+          </div>
+        </div>
+        <div class="rp-result" id="rp-result">
+          <div class="rp-inner" id="rp-inner"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ENCYCLOPEDIA ===== -->
+<section class="sec" id="encyclopedia">
+  <div class="mxw">
+    <div class="tc" style="margin-bottom:36px;">
+      <div class="sec-tag">📚 Complete Knowledge Base</div>
+      <h2 class="sec-title">Crop Disease Encyclopedia</h2>
+      <p class="sec-sub">10 major crops · 45+ detailed profiles · Scientific causes, symptoms, prevention & treatment for every disease.</p>
+    </div>
+    <div class="enc-layout">
+      <div class="enc-side">
+        <div class="enc-side-label">Select a Crop</div>
+        <div class="enc-search">
+          <span style="color:var(--t3);">🔍</span>
+          <input type="text" id="enc-srch" placeholder="Search crops…" oninput="encFilter(this.value)">
+        </div>
+        <div class="enc-list" id="enc-list"></div>
+      </div>
+      <div id="enc-main">
+        <div class="enc-welcome">
+          <div class="enc-wel-icon">🌾</div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;color:var(--t2);margin-bottom:8px;">Select a Crop</h2>
+          <p style="font-size:.85rem;color:var(--t3);max-width:290px;line-height:1.7;">Choose any crop from the sidebar to explore its complete disease library with full scientific details.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PREVENTION ===== -->
+<section class="sec sec-alt" id="prevention">
+  <div class="mxw">
+    <div class="tc" style="margin-bottom:0;">
+      <div class="sec-tag">🛡️ Prevention Science</div>
+      <h2 class="sec-title">Stay Ahead of Disease</h2>
+      <p class="sec-sub">Science-backed strategies that reduce disease risk and protect your crop yield season after season.</p>
+    </div>
+    <div class="tips-grid">
+      <div class="tip"><div class="tip-icon" style="background:var(--bc);">💧</div><h3>Water at Ground Level</h3><p>Always use drip irrigation or water at soil surface — never overhead. Wet foliage creates high humidity triggering most fungal diseases.</p></div>
+      <div class="tip"><div class="tip-icon" style="background:var(--pc);">🔄</div><h3>Rotate Your Crops</h3><p>Alternate crop families every season. A 3-year rotation (cereal → legume → vegetable) dramatically reduces soil-borne pathogens.</p></div>
+      <div class="tip"><div class="tip-icon" style="background:var(--rc);">✂️</div><h3>Remove Infected Plants</h3><p>At first sign of disease, remove and bag infected material immediately. Never compost — burn or bury to prevent spore spread.</p></div>
+      <div class="tip"><div class="tip-icon" style="background:var(--gdc);">📅</div><h3>Scout Fields Weekly</h3><p>Inspect leaves top and bottom every week. Early detection is the most powerful tool — treatment at first sign is 10× more effective.</p></div>
+      <div class="tip"><div class="tip-icon" style="background:var(--gc);">🌬️</div><h3>Improve Air Circulation</h3><p>Maintain spacing and prune dense canopy. Good airflow dries leaves quickly — humidity above 80% for 6+ hours triggers fungal infection.</p></div>
+      <div class="tip"><div class="tip-icon" style="background:var(--bc);">🌱</div><h3>Use Resistant Varieties</h3><p>Plant certified disease-resistant seed varieties. Check local agricultural extension services — resistance is your cheapest protection.</p></div>
+      <div class="tip"><div class="tip-icon" style="background:var(--pc);">🌡️</div><h3>Monitor Weather</h3><p>High humidity + warm temperatures + 8+ hours of leaf wetness creates infection conditions for most pathogens. Act before rain events.</p></div>
+      <div class="tip"><div class="tip-icon" style="background:var(--gdc);">🧪</div><h3>Maintain Soil Health</h3><p>Keep balanced soil pH (6.0–7.0), adequate potassium and calcium. Nutritionally stressed plants are far more susceptible to all diseases.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHARE ===== -->
+<section class="sec" id="share">
+  <div class="mxw">
+    <div class="tc" style="margin-bottom:36px;">
+      <div class="sec-tag">📡 Communication Hub</div>
+      <h2 class="sec-title">Share & Alert Farmers</h2>
+      <p class="sec-sub">Instantly share disease alerts via WhatsApp or SMS. SMS reaches basic feature phones — no internet or smartphone needed on the receiver's end.</p>
+    </div>
+    <div class="share-hero">
+      <div style="font-size:2.4rem;margin-bottom:9px;">📡</div>
+      <div style="font-size:.98rem;font-weight:800;color:var(--t1);margin-bottom:6px;">Reach Every Farmer in Your Village</div>
+      <div style="font-size:.81rem;color:var(--t2);max-width:460px;margin:0 auto;line-height:1.7;">Scan a disease → Share tab → Send SMS to any farmer's basic mobile. Complete disease report with treatment steps delivered instantly.</div>
+    </div>
+    <div class="share-grid">
+      <div class="comm">
+        <div class="comm-icon">💬</div>
+        <div class="comm-title">WhatsApp Disease Alert</div>
+        <div class="comm-desc">Pre-formatted disease report opens WhatsApp ready to send to any contact or farming group. One tap to share.</div>
+        <div class="comm-prev" id="wa-prev">Complete a plant scan first to generate your shareable disease alert message.</div>
+        <button class="btn-comm bc-wa" onclick="doWA()">📲 Share on WhatsApp</button>
+      </div>
+      <div class="comm">
+        <div class="comm-icon">📱</div>
+        <div class="comm-title">SMS Alert <span class="any-tag">Works on ANY Phone</span></div>
+        <div class="comm-desc">Send to any mobile number. The recipient needs zero internet, zero smartphone — only a basic SIM card. Formatted report delivered instantly.</div>
+        <div class="comm-prev" id="sms-prev">Complete a plant scan first to generate your SMS alert message.</div>
+        <button class="btn-comm bc-sms" onclick="doSMS()">💬 Send SMS to Any Phone</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-logo"><div class="ndot" style="animation:none;box-shadow:0 0 10px var(--g);"></div>Agro<span>Shield</span></div>
+      <div class="foot-tag">AI-powered plant disease intelligence for every farmer worldwide. Completely free, always open source.</div>
+    </div>
+    <div class="foot-col"><h4>Platform</h4><ul><li><a onclick="sTo('scanner')">AI Scanner</a></li><li><a onclick="sTo('encyclopedia')">Disease Encyclopedia</a></li><li><a onclick="sTo('prevention')">Prevention Strategies</a></li><li><a onclick="sTo('share')">Share & Alerts</a></li><li><a onclick="sTo('progress')">Project Progress</a></li></ul></div>
+    <div class="foot-col"><h4>Crops</h4><ul><li><a>🍅 Tomato (4 diseases)</a></li><li><a>🌾 Wheat (3 diseases)</a></li><li><a>🍚 Rice (3 diseases)</a></li><li><a>🌽 Corn (3 diseases)</a></li><li><a>🥔 Potato (3 diseases)</a></li><li><a>🫘 Soybean + 🧶 Cotton</a></li><li><a>🍌 Banana + 🍎 Apple + 🍇 Grape</a></li></ul> </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2025 AgroShield — Built with ❤️ for Indian farmers · Powered by GEMINI Vision AI</span>
+    <span>v6.0 · Free & Open Source</span>
+  </div>
+</footer>
+
+<!-- ===== AUTH MODAL ===== -->
+<div id="auth-ov" onclick="if(event.target===this)closeAuth()">
+  <div class="auth-card">
+    <button class="auth-close" onclick="closeAuth()">✕</button>
+    <div class="auth-top">
+      <div class="auth-logo-wrap"><div class="ndot" style="width:7px;height:7px;"></div>Agro<span>Shield</span></div>
+      <div class="auth-tabs">
+        <div class="atab a" id="atab-l" onclick="swTab('l')">Sign In / ಲಾಗಿನ್ ಮಾಡಿ</div>
+        <div class="atab" id="atab-r" onclick="swTab('r')">Create Account / ಖಾತೆ ತೆರೆಯಿರಿ</div>
+      </div>
+    </div>
+    <div id="auth-forms">
+      <div class="auth-body">
+        <div class="auth-err" id="auth-err"></div>
+        <div id="f-l">
+          <div class="frow"><div class="flab">Email / ಇಮೇಲ್ ವಿಳಾಸ</div><input class="finp" type="email" id="l-em" placeholder="you@example.com" onkeydown="if(event.key==='Enter')doLogin()"></div>
+          <div class="frow"><div class="flab">Password / ಪಾಸ್‌ವರ್ಡ್</div><input class="finp" type="password" id="l-pw" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
+          <button class="btn-asubmit" onclick="doLogin()">Sign In → ಮುಂದೆ ಹೋಗಿ</button>
+          <div class="auth-alt">No account? / ಖಾತೆ ಇಲ್ಲವೇ? <a onclick="swTab('r')">Create one free / ಉಚಿತವಾಗಿ ತೆರೆಯಿರಿ</a></div>
+        </div>
+        <div id="f-r" class="hidden">
+          <div class="frow"><div class="flab">Full Name / ಪೂರ್ಣ ಹೆಸರು</div><input class="finp" type="text" id="r-nm" placeholder="Your full name / ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು"></div>
+          <div class="frow"><div class="flab">Email / ಇಮೇಲ್ ವಿಳಾಸ</div><input class="finp" type="email" id="r-em" placeholder="you@example.com"></div>
+          <div class="frow">
+            <div class="flab">Password / ಪಾಸ್‌ವರ್ಡ್</div>
+            <input class="finp" type="password" id="r-pw" placeholder="Min 6 characters / ಕನಿಷ್ಠ 6 ಅಕ್ಷರಗಳು" oninput="chkPw(this.value)">
+            <div class="pw-bar"><div class="pw-fill" id="pw-fill"></div></div>
+          </div>
+          <div class="frow"><div class="flab">Phone (SMS Alerts) / ಫೋನ್ (SMS ಎಚ್ಚರಿಕೆ)</div><input class="finp" type="tel" id="r-ph" placeholder="+91 XXXXX XXXXX"></div>
+          <button class="btn-asubmit" onclick="doRegister()">Create Account → ಖಾತೆ ತೆರೆಯಿರಿ</button>
+          <div class="auth-alt">Have an account? / ಖಾತೆ ಇದೆಯೇ? <a onclick="swTab('l')">Sign in / ಲಾಗಿನ್ ಮಾಡಿ</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="auth-success" id="auth-success">
+      <div class="asc-icon">🎉</div>
+      <div class="asc-title" id="asc-title">Welcome! / ಸ್ವಾಗತ!</div>
+      <div class="asc-msg" id="asc-msg">You are signed in. Start scanning plants now. / ನೀವು ಲಾಗಿನ್ ಆಗಿದ್ದೀರಿ. ಈಗ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DISEASE DETAIL OVERLAY ===== -->
+<div id="dov" onclick="if(event.target===this)closeDov()">
+  <div class="dov-panel">
+    <div class="dov-hdr">
+      <button class="dov-close" onclick="closeDov()">✕</button>
+      <div class="dov-crop" id="dov-crop"></div>
+      <div class="dov-badges" id="dov-badges"></div>
+      <div class="dov-name" id="dov-name"></div>
+      <div class="dov-sci" id="dov-sci"></div>
+    </div>
+    <div class="dov-body" id="dov-body"></div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
