@@ -86,7 +86,7 @@ def prediction(image_path):
 # 🌐 ROUTES
 @app.route('/')
 def home_page():
-    return render_template('home.html')
+    return "Backend is running 🚀"
 
 @app.route('/contact')
 def contact():
